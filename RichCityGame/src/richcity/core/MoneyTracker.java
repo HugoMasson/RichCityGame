@@ -1,7 +1,7 @@
 package richcity.core;
 
 public class MoneyTracker {
-	int money = 0;
+	int money = 100;
 	
 	public void addMoney(int amount) {
 		money+=amount;
