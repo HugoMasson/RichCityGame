@@ -28,6 +28,7 @@ public class Main {
 		CookieClicker cc = new CookieClicker(1000, 600, money);
 		Casino ca = new Casino(1000, 600, money);
 		GameOverWindow gow = new GameOverWindow(1000, 600, money);
+		Crypto cr = new Crypto(1000, 800, money);
 		
 		//timer
 		final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
@@ -37,7 +38,8 @@ public class Main {
                 countdownStarter--;
                 if (countdownStarter < 0) {
                     System.out.println("Game Over!");
-                    sw.showMe(false);iw.showMe(false);hw.showMe(false);cc.showMe(false);ca.showMe(false);
+                    sw.showMe(false);iw.showMe(false);hw.showMe(false);
+                    cc.showMe(false);ca.showMe(false);cr.showMe(false);
                     gow.showMe(true);
                     scheduler.shutdown();
                 }
@@ -45,24 +47,7 @@ public class Main {
         };
         scheduler.scheduleAtFixedRate(runnable, 0, 1, TimeUnit.SECONDS);
     
-	    // Start Screen
-	    //StartWindow sw = new StartWindow(1000, 600, money);
-	    //sw.showMe(true);
-	    
-	    // Info Screen
-	    //InfoWindow iw = new InfoWindow(1000, 600);
-	    //iw.showMe(true);
-	    
-	    
-	    // Help Screen
-	    //HelpWindow hw = new HelpWindow(1000, 600, money);
-	    //hw.showMe(true);
-	    
-	    // Cookie Clicker Screen
-	    //CookieClicker cc = new CookieClicker(1000, 600, money);
-	    //cc.showMe(true);
-	    
-        currentlyOpen = ca.showMe(true);
+	   cr.showMe(true);
   	}
 
 }
