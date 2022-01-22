@@ -15,15 +15,16 @@ public class GraphPanel extends JPanel{
 
 	private static final long serialVersionUID = 1L;
 	int width, height;
+	double basePrice, scale;
 	ArrayList<Integer[]> values;
 	Random rand;
-	final static float dash1[] = {10.0f};
-	final static BasicStroke dashed = new BasicStroke(1.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10.0f, dash1, 0.0f);
 	
-	public GraphPanel(ArrayList<Integer[]> _values, int width, int height) {	//values = 5,-2,2,-3,4 -> 5 value / -2 & 2 size of the rect / -3 & 4 size line
+	public GraphPanel(ArrayList<Integer[]> _values, int width, int height, double basePrice, double scale) {	//values = 5,-2,2,-3,4 -> 5 value / -2 & 2 size of the rect / -3 & 4 size line
 		
 		this.width  = width;
 		this.height = height;
+		this.basePrice = basePrice;
+		this.scale = scale;
 		this.values = _values;
 		
 		//update graph
@@ -32,7 +33,7 @@ public class GraphPanel extends JPanel{
             public void run() {
             	int ba = -rInt(5,30);
             	int bb = rInt(5,30);
-            	Integer[] arr = {rInt(0,height),ba,bb,rInt(10,40),rInt(10,40)};
+            	Integer[] arr = {rInt(1,height),ba,bb,rInt(10,40),rInt(10,40)};
             	values.add(arr);
             	repaint();
             }
@@ -59,12 +60,17 @@ public class GraphPanel extends JPanel{
 			Integer[] cv = values.get(i);
 			g.fillRect(8*i, -cv[2]-cv[0]+(height), 5, cv[2]-cv[1]);
 			g.drawLine(8*i+2, -cv[4]-cv[0]+(height), 8*i+2, cv[3]-cv[0]+(height));
-			if(i > 0) {
-				//g.setColor(Color.darkGray);
-				//g.drawLine(8*(i-1)+5, height-values.get(i-1)[0], 8*i, height-cv[0]);
-			}
 		}
 		
+	}
+	
+	public ArrayList<Integer[]> getValues() {
+		return values;
+	}
+	
+	public double getLastValue() {
+		return basePrice + ((double)((values.get(values.size()-1)[0]))/100)*scale;
+		//return values.get(values.size()-1)[0];
 	}
 	
 	public int rInt(int min, int max) {

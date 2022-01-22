@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 import richcity.core.MoneyTracker;
 import richcity.tools.ImagePanel;
 import richcity.tools.ResizeElements;
+import richcity.tools.TypeConvertor;
 
 public class Casino  extends JFrame {
 
@@ -57,7 +58,7 @@ public class Casino  extends JFrame {
 		red.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				betAmount = tryToConvTextToInt(amountToBet.getText());	//positive int or -1 if invalid entry
+				betAmount = TypeConvertor.tryToConvTextToInt(amountToBet.getText());	//positive int or -1 if invalid entry
 				if(money.getMoney() >= betAmount) {
 					if(betAmount != -1) {
 						if((int)(Math.random() * (100)) < winRate) {	//win bet
@@ -79,7 +80,7 @@ public class Casino  extends JFrame {
 		black.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				betAmount = tryToConvTextToInt(amountToBet.getText());	//positive int or -1 if invalid entry
+				betAmount = TypeConvertor.tryToConvTextToInt(amountToBet.getText());	//positive int or -1 if invalid entry
 				if(money.getMoney() >= betAmount) {
 					if(betAmount != -1) {
 						if((int)(Math.random() * (100)) < winRate) {	//win bet
@@ -118,18 +119,6 @@ public class Casino  extends JFrame {
 		this.add(moneyLabel);
 	}
 
-	public int tryToConvTextToInt(String txt) {
-		
-		try{
-			int nbr = Integer.parseInt(txt);
-			if(nbr > 0) {
-				return Integer.parseInt(txt);
-			} 
-        } catch (NumberFormatException ex){
-            ex.printStackTrace();
-            
-        }return -1;
-	}
 	
 	public int showMe(boolean b) {
 		this.setVisible(b);
