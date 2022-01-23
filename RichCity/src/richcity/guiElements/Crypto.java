@@ -69,21 +69,21 @@ public class Crypto extends JFrame{
 		moneyLabel.setSize(250, 100);
 		moneyLabel.setForeground(Color.BLACK);
 		moneyLabel.setVisible(true);
-		moneyLabel.setLocation((width/2)-400,(height/2)+290);
+		moneyLabel.setLocation((width/2)-200,(height/2)+290);
 		
 		JLabel btcLabel = new JLabel(money.getBTC()+"-BTC");
 		btcLabel.setFont(new Font("Fixedsys Standard", Font.BOLD, 20));
 		btcLabel.setSize(500, 100);
 		btcLabel.setForeground(Color.BLACK);
 		btcLabel.setVisible(true);
-		btcLabel.setLocation((width/2)-450,(height/2)-350);
+		btcLabel.setLocation((width/2)-450,(height/2)-400);
 		
 		JLabel ethLabel = new JLabel(money.getETH()+"-ETH");
 		ethLabel.setFont(new Font("Fixedsys Standard", Font.BOLD, 20));
 		ethLabel.setSize(500, 100);
 		ethLabel.setForeground(Color.BLACK);
 		ethLabel.setVisible(true);
-		ethLabel.setLocation((width/2)-450,(height/2)-100);
+		ethLabel.setLocation((width/2)-450,(height/2)-150);
 		
 		JLabel dodgeLabel = new JLabel(money.getDODGE()+"-DODGE");
 		dodgeLabel.setFont(new Font("Fixedsys Standard", Font.BOLD, 20));
@@ -101,7 +101,7 @@ public class Crypto extends JFrame{
 		amountBitcoin.setForeground(Color.WHITE);
 		amountBitcoin.setBackground(Color.black);
 		amountBitcoin.setVisible(true);
-		amountBitcoin.setLocation((width/2)-430,(height/2)-250);
+		amountBitcoin.setLocation((width/2)-430,(height/2)-300);
 		
 		JTextField amountEth = new JTextField(20);
 		amountEth.setFont(new Font("Fixedsys Standard", Font.BOLD, 25));
@@ -109,7 +109,7 @@ public class Crypto extends JFrame{
 		amountEth.setForeground(Color.WHITE);
 		amountEth.setBackground(Color.black);
 		amountEth.setVisible(true);
-		amountEth.setLocation((width/2)-430,(height/2));
+		amountEth.setLocation((width/2)-430,(height/2)-50);
 		
 		JTextField amountDodge = new JTextField(20);
 		amountDodge.setFont(new Font("Fixedsys Standard", Font.BOLD, 25));
@@ -117,7 +117,7 @@ public class Crypto extends JFrame{
 		amountDodge.setForeground(Color.WHITE);
 		amountDodge.setBackground(Color.black);
 		amountDodge.setVisible(true);
-		amountDodge.setLocation((width/2)-430,(height/2)+250);
+		amountDodge.setLocation((width/2)-430,(height/2)+200);
 		
 		/*
 		 * Buy / Sell buttons
@@ -125,7 +125,7 @@ public class Crypto extends JFrame{
 		JButton buyBitcoin = new JButton("Buy");
 		buyBitcoin.setSize(100, 60);
 		buyBitcoin.setVisible(true);
-		buyBitcoin.setLocation((width/2)-320,(height/2)-250);
+		buyBitcoin.setLocation((width/2)-320,(height/2)-300);
 		buyBitcoin.setOpaque(false);
 		//buyBitcoin.setContentAreaFilled(false);
 		//buyBitcoin.setBorderPainted(false);
@@ -133,7 +133,7 @@ public class Crypto extends JFrame{
 		JButton buyEth = new JButton("Buy");
 		buyEth.setSize(100, 60);
 		buyEth.setVisible(true);
-		buyEth.setLocation((width/2)-320,(height/2));
+		buyEth.setLocation((width/2)-320,(height/2)-50);
 		buyEth.setOpaque(false);
 		//buyEth.setContentAreaFilled(false);
 		//buyEth.setBorderPainted(false);
@@ -141,7 +141,7 @@ public class Crypto extends JFrame{
 		JButton buyDodge = new JButton("Buy");
 		buyDodge.setSize(100, 60);
 		buyDodge.setVisible(true);
-		buyDodge.setLocation((width/2)-320,(height/2)+250);
+		buyDodge.setLocation((width/2)-320,(height/2)+200);
 		buyDodge.setOpaque(false);
 		//buyDodge.setContentAreaFilled(false);
 		//buyDodge.setBorderPainted(false);
@@ -149,7 +149,7 @@ public class Crypto extends JFrame{
 		JButton sellBitcoin = new JButton("Sell");
 		sellBitcoin.setSize(100, 60);
 		sellBitcoin.setVisible(true);
-		sellBitcoin.setLocation((width/2)-220,(height/2)-250);
+		sellBitcoin.setLocation((width/2)-220,(height/2)-300);
 		sellBitcoin.setOpaque(false);
 		//buyBitcoin.setContentAreaFilled(false);
 		//buyBitcoin.setBorderPainted(false);
@@ -157,7 +157,7 @@ public class Crypto extends JFrame{
 		JButton sellEth = new JButton("Sell");
 		sellEth.setSize(100, 60);
 		sellEth.setVisible(true);
-		sellEth.setLocation((width/2)-220,(height/2));
+		sellEth.setLocation((width/2)-220,(height/2)-50);
 		sellEth.setOpaque(false);
 		//buyEth.setContentAreaFilled(false);
 		//buyEth.setBorderPainted(false);
@@ -165,10 +165,19 @@ public class Crypto extends JFrame{
 		JButton sellDodge = new JButton("Sell");
 		sellDodge.setSize(100, 60);
 		sellDodge.setVisible(true);
-		sellDodge.setLocation((width/2)-220,(height/2)+250);
+		sellDodge.setLocation((width/2)-220,(height/2)+200);
 		sellDodge.setOpaque(false);
 		//buyDodge.setContentAreaFilled(false);
 		//buyDodge.setBorderPainted(false);
+		
+		JButton backB = new JButton(ResizeElements.resizeIcon("assets/general/back-button.png", 240, 70));
+	    backB.setBorder(null);
+	    backB.setSize(240, 80);
+	    backB.setBackground(Color.red);
+		backB.setOpaque(false);
+		backB.setFocusPainted(false);
+		backB.setVisible(true);
+		backB.setLocation((width/2)-500,(height/2)+280);
 		
 		/*
 		 * Button events
@@ -228,7 +237,6 @@ public class Crypto extends JFrame{
 				double invAmount = TypeConvertor.tryToConvTextToDouble(amountBitcoin.getText());
 				if(money.getBTC()*bitcoinGraph.getLastValue() >= (invAmount*bitcoinGraph.getLastValue())) {
 					if(invAmount != -1) {
-						System.out.println("in");
 						money.addMoney((int)(invAmount*bitcoinGraph.getLastValue()));
 						money.takeBTC(invAmount);
 						moneyLabel.setText(money.getMoney()+"-$");
@@ -270,6 +278,17 @@ public class Crypto extends JFrame{
 				}	
 			}
 		});
+		
+		backB.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		    	SelectGameWindow sw = new SelectGameWindow(1000, 600, money);
+				sw.showMe(true);
+				dispose();
+		    }
+		});
+		
+		
 		/*
 		 * Window Settings
 		 */
@@ -300,6 +319,7 @@ public class Crypto extends JFrame{
 		this.add(btcLabel);
 		this.add(ethLabel);
 		this.add(dodgeLabel);
+		this.add(backB);
 	}
 
 	

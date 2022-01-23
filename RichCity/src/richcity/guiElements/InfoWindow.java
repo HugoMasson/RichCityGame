@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import richcity.core.MoneyTracker;
 import richcity.tools.ImagePanel;
 import richcity.tools.ResizeElements;
 
@@ -19,8 +20,11 @@ public class InfoWindow extends JFrame{
 
   private static final long serialVersionUID = 1L;
   int idW = 2;
+  MoneyTracker money;
   
-  public InfoWindow(int width, int height) {
+  public InfoWindow(int width, int height, MoneyTracker money) {
+	this.money = money;
+	 
 	  
 	/*
 	 * logo Settings  
@@ -48,12 +52,15 @@ public class InfoWindow extends JFrame{
 			/*
 			 * Back Button Action
 			 */
-			backB.addActionListener(new ActionListener() {
-			    @Override
-			    public void actionPerformed(ActionEvent e) {
-			    	//change  JFrame create class to handle that
-			    }
-			});
+	backB.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			showMe(false);
+			StartWindow sw = new StartWindow(1000, 600, money);
+			sw.showMe(true);
+			dispose();
+		}
+	});
     
 	/*
 	 * Set background

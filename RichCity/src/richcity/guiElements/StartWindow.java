@@ -1,5 +1,7 @@
 package richcity.guiElements;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -55,6 +57,30 @@ public class StartWindow extends JFrame{
     infoB.setBorder(null);
     infoB.setVisible(true);
     infoB.setLocation((width/2)-180,(height/2)+50);
+    
+    /*
+     * Button events
+     */
+    
+    startB.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			showMe(false);
+			SelectGameWindow sw = new SelectGameWindow(width, height, money);
+			sw.showMe(true);
+			dispose();
+		}
+	});
+    
+    infoB.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			showMe(false);
+			InfoWindow iw = new InfoWindow(width, height, money);
+			iw.showMe(true);
+			dispose();
+		}
+	});
     
     /*
      * Set Background

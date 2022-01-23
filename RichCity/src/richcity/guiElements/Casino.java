@@ -85,12 +85,30 @@ public class Casino  extends JFrame {
 					if(betAmount != -1) {
 						if((int)(Math.random() * (100)) < winRate) {	//win bet
 							money.addMoney(betAmount*2);
-						} else {								//lost bet
+						} else {										//lost bet
 							money.addMoney(-betAmount);
 						}
 						moneyLabel.setText(money.getMoney()+"-$");
 					}
 				}
+			}
+		});
+		
+		JButton backB = new JButton(ResizeElements.resizeIcon("assets/casino/backB.png", 260, 70));
+		backB.setBorder(null);
+		backB.setSize(260, 70);
+		backB.setFocusPainted(false);
+		backB.setBackground(Color.red);
+		backB.setOpaque(false);
+		backB.setVisible(true);
+		backB.setLocation((width/2)-500,(height/2)+180);
+		
+		backB.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				SelectGameWindow sw = new SelectGameWindow(1000, 600, money);
+				sw.showMe(true);
+				dispose();
 			}
 		});
 		
@@ -117,6 +135,7 @@ public class Casino  extends JFrame {
 		this.add(black);
 		this.add(amountToBet);
 		this.add(moneyLabel);
+		this.add(backB);
 	}
 
 	

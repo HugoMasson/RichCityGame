@@ -22,14 +22,13 @@ public class Main {
 	public static void main(String[] args) {
 		int currentlyOpen = 0;
 		MoneyTracker money = new MoneyTracker();
-		//StartWindow sw = new StartWindow(1000, 600, money);
-		//InfoWindow iw = new InfoWindow(1000, 600);
+		StartWindow sw = new StartWindow(1000, 600, money);
 		//HelpWindow hw = new HelpWindow(1000, 600, money);
 		//CookieClicker cc = new CookieClicker(1000, 600, money);
 		//Casino ca = new Casino(1000, 600, money);
 		//GameOverWindow gow = new GameOverWindow(1000, 600, money);
-		Crypto cr = new Crypto(1000, 800, money);
-		//SelectGameWindow sg = new SelectGameWindow(1000, 600, money);
+		//Crypto cr = new Crypto(1000, 800, money);
+		
 		
 		//timer
 		final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
@@ -48,7 +47,9 @@ public class Main {
             }
         };
         scheduler.scheduleAtFixedRate(runnable, 0, 1, TimeUnit.SECONDS);
-        cr.showMe(true);
+        
+        sw.showMe(true);
+        //cr.showMe(true);
   	}
 
 }

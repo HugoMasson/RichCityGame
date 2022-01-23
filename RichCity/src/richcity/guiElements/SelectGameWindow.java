@@ -1,5 +1,7 @@
 package richcity.guiElements;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -126,6 +128,63 @@ public class SelectGameWindow extends JFrame{
 	    exitB.setFocusPainted(false);
 	    exitB.setBorder(null);
 	    exitB.setLocation((width/2)-40,(height/2)+90);
+	    
+	    /*
+	     * Button events
+	     */
+	    
+	    kryptoB.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Crypto cr = new Crypto(1000, 800, money);
+				cr.showMe(true);
+				dispose();
+			}
+		});
+	    
+	    arbeitenB.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				CookieClicker cc = new CookieClicker(1000, 600, money);
+				cc.showMe(true);
+				dispose();
+			}
+		});
+	    
+	    hilfeB.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				HelpWindow hw = new HelpWindow(1000, 600, money);
+				hw.showMe(true);
+				dispose();
+			}
+		});
+	    
+	    casinoB.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Casino ca = new Casino(1000, 600, money);
+				ca.showMe(true);
+				dispose();
+			}
+		});
+	    
+	    exitB.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				System.exit(1);
+			}
+		});
+	    
+	    kryptoB.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				StartWindow sw = new StartWindow(1000, 600, money);
+				sw.showMe(true);
+				dispose();
+			}
+		});
 	    
 	    /*
 	     * Set Background

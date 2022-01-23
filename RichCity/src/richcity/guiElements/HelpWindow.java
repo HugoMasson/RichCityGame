@@ -52,7 +52,9 @@ public class HelpWindow extends JFrame{
 	backB.addActionListener(new ActionListener() {
 	    @Override
 	    public void actionPerformed(ActionEvent e) {
-	    	//change  JFrame create class to handle that
+	    	SelectGameWindow sw = new SelectGameWindow(1000, 600, money);
+			sw.showMe(true);
+			dispose();
 	    }
 	});
 	

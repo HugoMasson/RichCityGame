@@ -87,7 +87,9 @@ public class CookieClicker extends JFrame{
 		backB.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
-		    	//change  JFrame create class to handle that
+		    	SelectGameWindow sgw = new SelectGameWindow(1000, 600, money);
+				sgw.showMe(true);
+				dispose();
 		    }
 		});
 		
