@@ -177,14 +177,6 @@ public class SelectGameWindow extends JFrame{
 			}
 		});
 	    
-	    kryptoB.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				StartWindow sw = new StartWindow(1000, 600, money);
-				sw.showMe(true);
-				dispose();
-			}
-		});
 	    
 	    /*
 	     * Set Background

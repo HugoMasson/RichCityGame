@@ -236,7 +236,10 @@ public class Crypto extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				double invAmount = TypeConvertor.tryToConvTextToDouble(amountBitcoin.getText());
 				if(money.getBTC()*bitcoinGraph.getLastValue() >= (invAmount*bitcoinGraph.getLastValue())) {
-					if(invAmount != -1) {
+					if(invAmount != -1 && invAmount >= 0.01) {
+						if(Math.abs(invAmount-money.getBTC()) <= 0.01) {
+							invAmount = money.getBTC();
+						}
 						money.addMoney((int)(invAmount*bitcoinGraph.getLastValue()));
 						money.takeBTC(invAmount);
 						moneyLabel.setText(money.getMoney()+"-$");
@@ -252,7 +255,10 @@ public class Crypto extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				double invAmount = TypeConvertor.tryToConvTextToDouble(amountEth.getText());
 				if(money.getETH()*ethGraph.getLastValue() >= (invAmount*ethGraph.getLastValue())) {
-					if(invAmount != -1) {
+					if(invAmount != -1 && invAmount >= 0.01) {
+						if(Math.abs(invAmount-money.getETH()) <= 0.01) {
+							invAmount = money.getETH();
+						}
 						money.addMoney((int)(invAmount*ethGraph.getLastValue()));
 						money.takeETH(invAmount);
 						moneyLabel.setText(money.getMoney()+"-$");
@@ -268,7 +274,10 @@ public class Crypto extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				double invAmount = TypeConvertor.tryToConvTextToDouble(amountDodge.getText());
 				if(money.getDODGE()*dodgeGraph.getLastValue() >= (invAmount*dodgeGraph.getLastValue())) {
-					if(invAmount != -1) {
+					if(invAmount != -1 && invAmount >= 0.01) {
+						if(Math.abs(invAmount-money.getDODGE()) <= 0.01) {
+							invAmount = money.getDODGE();
+						}
 						money.addMoney((int)(invAmount*dodgeGraph.getLastValue()));
 						money.takeDODGE(invAmount);
 						moneyLabel.setText(money.getMoney()+"-$");
